@@ -1,0 +1,15 @@
+{
+  "name": "gmail-emailer",
+  "version": "1.0.0",
+  "description": "Sends emails",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ed Poplet",
+  "license": "ISC",
+  "dependencies": {
+    "googleapis": "^109.0.0",
+    "nodemailer": "^6.8.0"
+  }
+}
