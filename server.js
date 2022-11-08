@@ -1,7 +1,7 @@
 const tutorial = 'https://www.youtube.com/watch?v=18qA61bpfUs';
 const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
-const config = require('./config.js');
+const config = require('./edsConfig.js');
 const OAuth2 = google.auth.OAuth2;
 
 const OAuth2_client = new OAuth2(config.clientId, config.clientSecret);
@@ -25,7 +25,8 @@ function send_mail(name, recipient) {
     const mail_options = {
         from: `Ed Poplet <${config.user}>`,
         to: recipient,
-        subject: 'My first auto Gmail email',
+        replyTo: getUserEmail(),
+        subject: getSubject(),
         html: get_html_message(name),
     };
 
@@ -38,11 +39,19 @@ function send_mail(name, recipient) {
         transport.close();
     });
 }
-
+function getUserEmail() {
+    return 'shodbyed+replytome@gmail.com';
+}
+function getSubject() {
+    return 'outside subject is working';
+}
 function get_html_message(name) {
     return `
-    <h3> ${name}, Got this shit workin mutha fuka!</h3>
+    <div>
+    <h3> ${name}, another test email</h3>
+    <p> email is working still</p>
+    </div>
     `;
 }
 
-send_mail('Jack', 'jack.darizat@gmail.com');
+send_mail('ed', 'shodbyed@gmail.com');
